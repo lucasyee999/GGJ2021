@@ -15,9 +15,13 @@ public class EnemyCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if(other.tag == "Player")
         {
-            _enemyController.OnEnter(other);
+            if (Physics2D.Raycast(_enemyController.transform.position, (other.transform.position - _enemyController.transform.position)))
+            {
+                _enemyController.OnEnter(other);
+                Debug.Log("Hit?");
+            }
         }
 
     }

@@ -24,6 +24,8 @@ public class EnemyController : MonoBehaviour
 
     public StateMachine stateMachine = new StateMachine();
 
+    public bool TestTarget = false;
+
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -36,14 +38,22 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        stateMachine.ChangeState(new EnemyIdleState(this));
+        if(!TestTarget)
+        {
+            stateMachine.ChangeState(new EnemyIdleState(this));
+        }
     }
 
     private void Update()
     {
-        stateMachine.Update();
-
-
+        if(!TestTarget)
+        {
+            stateMachine.Update();
+        }
+        else
+        {
+            MoveTowards(Target, ChaseMovementSpeed);
+        }
     }
 
     public void MoveTowards(Transform target, float speed)
@@ -52,12 +62,15 @@ public class EnemyController : MonoBehaviour
         _agent.SetDestination(Target.position);
         _agent.speed = speed;
 
-        if(Vector2.Distance(transform.position, target.transform.position) > 1.5f)
+        if(!Physics.Raycast(transform.position, (target.transform.position- transform.position)))
         {
-            Vector2 direction = ((Vector2)target.transform.position - (Vector2)coneCollider.transform.position).normalized;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            var offset = 90f;
-            coneCollider.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+            if (Vector2.Distance(transform.position, target.transform.position) > 1.5f)
+            {
+                Vector2 direction = ((Vector2)target.transform.position - (Vector2)coneCollider.transform.position).normalized;
+                var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                var offset = 90f;
+                coneCollider.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
+            }
         }
     }
 
