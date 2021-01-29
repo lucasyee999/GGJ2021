@@ -6,13 +6,11 @@ using UnityEngine.AI;
 public class PlayerController : MonoBehaviour
 {
     public float runSpeed = 20.0f;
-    private NavMeshAgent _agent;
+    public GameObject SpriteMask;
 
     private void Start()
     {
-        _agent = GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
+
     }
 
 
@@ -22,6 +20,13 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = input.normalized * runSpeed;
         transform.position += velocity * Time.deltaTime;
 
+        Debug.Log(velocity);
+
+    }
+
+    private void LateUpdate()
+    {
+        SpriteMask.transform.position = transform.position;
     }
 
 }

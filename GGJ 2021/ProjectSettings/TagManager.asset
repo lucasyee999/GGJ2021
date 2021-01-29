@@ -50,3 +50,6 @@ TagManager:
   - name: PlayerEnemies
     uniqueID: 824928317
     locked: 0
+  - name: SpriteMask
+    uniqueID: 4231336787
+    locked: 0
