@@ -6,6 +6,8 @@ public class EnemyCollider : MonoBehaviour
 {
     private EnemyController _enemyController;
 
+    private Transform transformer;
+
 
     private void Start()
     {
@@ -15,9 +17,10 @@ public class EnemyCollider : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
-            if (Physics2D.Raycast(_enemyController.transform.position, (other.transform.position - _enemyController.transform.position)))
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, other.transform.position - _enemyController.transform.position, 1000f, LayerMask.NameToLayer("NonDetection"));
+            if (hit.collider.CompareTag("Player") || hit.collider.tag == "Player")
             {
                 _enemyController.OnEnter(other);
             }
@@ -27,7 +30,7 @@ public class EnemyCollider : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             _enemyController.OnExit(other);
         }

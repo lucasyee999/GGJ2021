@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +45,5 @@ public class PlayerController : MonoBehaviour
             SpriteMask.transform.position = transform.position;
         }
     }
-
 
 }

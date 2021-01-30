@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     [Header("Chase")]
     public float ChaseMovementSpeed = 5f;
 
+    public Transform enemySpriteTransform;
+
     private NavMeshAgent _agent;
     public Transform Target;
     [HideInInspector] public PolygonCollider2D coneCollider;
@@ -25,6 +27,7 @@ public class EnemyController : MonoBehaviour
     public StateMachine stateMachine = new StateMachine();
 
     public bool TestTarget = false;
+
 
     private void Awake()
     {
@@ -52,7 +55,7 @@ public class EnemyController : MonoBehaviour
         }
         else
         {
-            MoveTowards(Target, ChaseMovementSpeed);
+            //MoveTowards(Target, ChaseMovementSpeed);
         }
     }
 
@@ -62,16 +65,15 @@ public class EnemyController : MonoBehaviour
         _agent.SetDestination(Target.position);
         _agent.speed = speed;
 
-        if(!Physics.Raycast(transform.position, (target.transform.position- transform.position)))
+        if (Vector2.Distance(transform.position, target.transform.position) > 1.5f)
         {
-            if (Vector2.Distance(transform.position, target.transform.position) > 1.5f)
-            {
-                Vector2 direction = ((Vector2)target.transform.position - (Vector2)coneCollider.transform.position).normalized;
-                var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-                var offset = 90f;
-                coneCollider.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
-            }
+            Vector2 direction = ((Vector2)target.transform.position - (Vector2)coneCollider.transform.position).normalized;
+            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            var offset = 90f;
+            coneCollider.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
         }
+
+        DirectionOfTarget(Target, transform);
     }
 
     public void OnEnter(Collider2D other)
@@ -82,6 +84,23 @@ public class EnemyController : MonoBehaviour
     public void OnExit(Collider2D other)
     {
         stateMachine.ChangeState(new EnemyPatrolState(this));
+    }
+
+    private void DirectionOfTarget(Transform target, Transform origin)
+    {
+        var directionVector = (target.transform.position - origin.transform.position).normalized;
+
+        // target is right
+        if(directionVector.x > 0)
+        {
+            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+        }
+        // target is left
+        else if(directionVector.x < 0)
+        {
+            enemySpriteTransform.transform.localScale = new Vector2(-5, 5);
+        }
+
     }
 
 
