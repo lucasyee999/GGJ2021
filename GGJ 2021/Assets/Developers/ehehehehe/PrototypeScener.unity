@@ -49150,6 +49150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 5
+  theSpeed: 0
   SpriteMask: {fileID: 673681760}
 --- !u!50 &766521581
 Rigidbody2D:
@@ -50261,6 +50262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHolder (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5448996732877684168, guid: bc4ee78eaf352ff4295c70b1382147df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5448996732877684171, guid: bc4ee78eaf352ff4295c70b1382147df,
         type: 3}
       propertyPath: m_RootOrder
@@ -51193,6 +51199,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EnemyHolder (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448996732877684168, guid: bc4ee78eaf352ff4295c70b1382147df,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 5448996732877684171, guid: bc4ee78eaf352ff4295c70b1382147df,
         type: 3}

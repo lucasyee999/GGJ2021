@@ -52,6 +52,9 @@ public class UIManager : MonoBehaviour
         GameView.SetActive(true);
         WinView.SetActive(false);
         LoseView.SetActive(true);
+
+        SoundManager.instance.StopAllSound();
+        SoundManager.instance.PlayBGM(0);
     }
 
     public void OnRetryButtonClicked()
