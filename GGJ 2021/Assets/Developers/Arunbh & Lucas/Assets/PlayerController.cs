@@ -22,6 +22,18 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = input.normalized * runSpeed;
         //transform.position += velocity * Time.deltaTime;
         rb.velocity = (Vector2)velocity;
+        void OnCollisionEnter(Collision other) 
+        {
+            if (other.collider.tag == "Enemy") 
+            {
+
+                Debug.Log("Hit!");
+            
+            }
+        
+        
+        
+        }
     }
 
     private void LateUpdate()
@@ -31,5 +43,6 @@ public class PlayerController : MonoBehaviour
             SpriteMask.transform.position = transform.position;
         }
     }
+
 
 }
