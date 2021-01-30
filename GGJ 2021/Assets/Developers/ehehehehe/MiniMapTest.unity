@@ -346,7 +346,6 @@ MonoBehaviour:
   ChaseMovementSpeed: 2
   Target: {fileID: 0}
   coneCollider: {fileID: 0}
-  TestTarget: 0
 --- !u!195 &480524997
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -813,12 +812,12 @@ SpriteRenderer:
   m_SortingLayerID: -63630509
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 88bf6b615fb276c48afeeb1dacbf9301, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63a0a555d12b13e469f1b1be428b56bb, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 6.4, y: 6.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3894,7 +3893,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06666667
+  m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_NavMeshData: {fileID: 23800000, guid: 88d51cf34ceec7543a71e6f89628ca25, type: 2}
 --- !u!4 &2122271102

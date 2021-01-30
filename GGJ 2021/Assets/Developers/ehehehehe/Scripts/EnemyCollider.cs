@@ -20,7 +20,6 @@ public class EnemyCollider : MonoBehaviour
             if (Physics2D.Raycast(_enemyController.transform.position, (other.transform.position - _enemyController.transform.position)))
             {
                 _enemyController.OnEnter(other);
-                Debug.Log("Hit?");
             }
         }
 
