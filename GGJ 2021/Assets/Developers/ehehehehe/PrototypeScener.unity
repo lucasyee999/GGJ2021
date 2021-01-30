@@ -3718,7 +3718,7 @@ GameObject:
   - component: {fileID: 502226700}
   - component: {fileID: 502226699}
   m_Layer: 8
-  m_Name: Obstacles
+  m_Name: ObstaclesMini
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6763,7 +6763,7 @@ GameObject:
   - component: {fileID: 599212375}
   - component: {fileID: 599212374}
   m_Layer: 8
-  m_Name: Ground
+  m_Name: GroundMini
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
