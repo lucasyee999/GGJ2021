@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(gameObject);
     }
 
     public void PlaySFX(int index)
