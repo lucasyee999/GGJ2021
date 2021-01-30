@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody2D rigid { get { return rb; } }
+
     public float runSpeed = 20.0f;
     public GameObject SpriteMask;
 
@@ -24,18 +26,6 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = input.normalized * runSpeed;
         //transform.position += velocity * Time.deltaTime;
         rb.velocity = (Vector2)velocity;
-        void OnCollisionEnter(Collision other) 
-        {
-            if (other.collider.tag == "Enemy") 
-            {
-
-                Debug.Log("Hit!");
-            
-            }
-        
-        
-        
-        }
     }
 
     private void LateUpdate()
@@ -43,6 +33,18 @@ public class PlayerController : MonoBehaviour
         if (SpriteMask != null)
         {
             SpriteMask.transform.position = transform.position;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.collider.tag == "Relic")
+        {
+            GameManager.instance.Found();
+        }
+        else if(other.collider.tag == "Escape")
+        {
+            GameManager.instance.Escaped();
         }
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+    public NavMeshAgent agenter { get { return _agent; } }
+
     [Header("Idle")]
     public float MinIdleTime;
     public float MaxIdleTime;
@@ -103,6 +105,13 @@ public class EnemyController : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.collider.tag == "Player")
+        {
+            UIManager.instance.OpenLoseView();
+        }
+    }
 
 
 }

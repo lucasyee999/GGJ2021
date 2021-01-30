@@ -32,10 +32,13 @@ public class MinimapManager : MonoBehaviour
             if(Minimap.activeInHierarchy)
             {
                 Minimap.SetActive(false);
+                GameManager.instance.playerController.enabled = true;
             }
             else
             {
                 Minimap.SetActive(true);
+                GameManager.instance.playerController.enabled = false;
+                GameManager.instance.playerController.rigid.velocity = Vector2.zero;
             }
         }
 
