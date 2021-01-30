@@ -24,7 +24,7 @@ public class EnemyChaseState : IState
 
     public void Execute()
     {
-        _owner.MoveTowards(_target, _owner.ChaseMovementSpeed);
+        _owner.MoveTowards(_target, _owner.ActualChaseSpeed);
 
     }
 

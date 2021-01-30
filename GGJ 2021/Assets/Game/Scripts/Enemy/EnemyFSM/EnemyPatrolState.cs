@@ -42,7 +42,7 @@ public class EnemyPatrolState : IState
                 currentPatrolPoint++;
             }
         }
-        _owner.MoveTowards(_owner.PatrolPoints[currentPatrolPoint], _owner.PatrolMovementSpeed);
+        _owner.MoveTowards(_owner.PatrolPoints[currentPatrolPoint], _owner.ActualPatrolSpeed);
 
     }
 

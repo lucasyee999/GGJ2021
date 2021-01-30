@@ -16,15 +16,20 @@ public class EnemyController : MonoBehaviour
     [Header("Patrol")]
     public Transform[] PatrolPoints;
     public float PatrolMovementSpeed = 5f;
+    [HideInInspector] public float ActualPatrolSpeed;
 
     [Header("Chase")]
     public float ChaseMovementSpeed = 5f;
+    [HideInInspector] public float ActualChaseSpeed;
 
     public Transform enemySpriteTransform;
 
     private NavMeshAgent _agent;
     public Transform Target;
     [HideInInspector] public PolygonCollider2D coneCollider;
+    public Sprite UpSprite;
+    public Sprite DownSprite;
+    public Sprite SideSprite;
 
     public StateMachine stateMachine = new StateMachine();
 
@@ -43,7 +48,10 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        if(!TestTarget)
+        ActualChaseSpeed = PatrolMovementSpeed;
+        ActualPatrolSpeed = ChaseMovementSpeed;
+
+        if (!TestTarget)
         {
             stateMachine.ChangeState(new EnemyIdleState(this));
         }
@@ -93,14 +101,29 @@ public class EnemyController : MonoBehaviour
         var directionVector = (target.transform.position - origin.transform.position).normalized;
 
         // target is right
-        if(directionVector.x > 0)
+        if(directionVector.y > 0.3f)
         {
             enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = UpSprite;
+        }
+        
+        else if(directionVector.y < -0.3f)
+        {
+            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = DownSprite;
+        }
+
+        else if(directionVector.x > 0)
+        {
+            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
+
         }
         // target is left
         else if(directionVector.x < 0)
         {
             enemySpriteTransform.transform.localScale = new Vector2(-5, 5);
+            enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
         }
 
     }

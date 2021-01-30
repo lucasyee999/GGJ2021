@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rigid { get { return rb; } }
 
     public float runSpeed = 20.0f;
+    public float theSpeed;
     public GameObject SpriteMask;
 
     private Rigidbody2D rb;
@@ -17,15 +18,16 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        theSpeed = runSpeed;
     }
 
 
     private void Update()
     {
         var input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        Vector3 velocity = input.normalized * runSpeed;
+        Vector3 velocity = input.normalized * theSpeed;
         //transform.position += velocity * Time.deltaTime;
-        rb.velocity = (Vector2)velocity;
+        rb.velocity = velocity;
     }
 
     private void LateUpdate()
