@@ -39,8 +39,6 @@ public class GameManager : MonoBehaviour
 
     public void Found()
     {
-        SoundManager.instance.StopAllSound();
-        SoundManager.instance.PlayBGM(2);
         playerController.enabled = false;
         playerController.rigid.velocity = Vector2.zero;
         playerController.SpriteMask.transform.DOScale(new Vector3(500, 500), 2f).OnComplete(Found2);
@@ -49,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     public void Found2()
     {
+        SoundManager.instance.StopAllSound();
+        SoundManager.instance.PlayBGM(2);
         Relic.SetActive(false);
         found = true;
         playerController.enabled = true;
