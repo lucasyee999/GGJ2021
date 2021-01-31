@@ -21,7 +21,7 @@ public class EnemyIdleState : IState
     {
         _idleTime -= Time.deltaTime;
 
-        if(_idleTime <= 0)
+        if (_idleTime <= 0)
         {
             _owner.stateMachine.ChangeState(new EnemyPatrolState(_owner));
         }
@@ -32,5 +32,9 @@ public class EnemyIdleState : IState
     public void Exit()
     {
 
+    }
+    public string GetName()
+    {
+        return "EnemyIdleState";
     }
 }

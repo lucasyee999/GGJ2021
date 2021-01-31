@@ -4,7 +4,7 @@
 
     public void ChangeState(IState newState)
     {
-        if(_currentState != null)
+        if (_currentState != null)
         {
             _currentState.Exit();
         }
@@ -14,13 +14,15 @@
 
     }
 
-    public void Update()
+    public void Update(bool isPlayerVisible, bool isFound, EnemyController owner)
     {
-        if(_currentState != null)
+        if (_currentState != null)
         {
             _currentState.Execute();
+            if (_currentState is EnemyChaseState && !isPlayerVisible && !isFound)
+            {
+                this.ChangeState(new EnemyPatrolState(owner));
+            }
         }
     }
-
-
 }

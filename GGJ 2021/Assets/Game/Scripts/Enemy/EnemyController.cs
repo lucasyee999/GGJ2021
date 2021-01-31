@@ -35,6 +35,8 @@ public class EnemyController : MonoBehaviour
 
     public bool TestTarget = false;
 
+    private GameObject player;
+
 
     private void Awake()
     {
@@ -43,14 +45,13 @@ public class EnemyController : MonoBehaviour
         _agent.updateUpAxis = false;
 
         _startingTransform = transform.position;
-
     }
 
     private void Start()
     {
         ActualChaseSpeed = PatrolMovementSpeed;
         ActualPatrolSpeed = ChaseMovementSpeed;
-
+        this.player = GameObject.Find("Player");
         if (!TestTarget)
         {
             stateMachine.ChangeState(new EnemyIdleState(this));
@@ -61,7 +62,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!TestTarget)
         {
-            stateMachine.Update();
+            stateMachine.Update(this.IsPlayerVisible(), GameManager.instance.found, this);
         }
         else
         {
@@ -134,6 +135,16 @@ public class EnemyController : MonoBehaviour
         {
             UIManager.instance.OpenLoseView();
         }
+    }
+
+    private bool IsPlayerVisible()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, this.player.transform.position - transform.position, 1000f, LayerMask.NameToLayer("NonDetection"));
+        if (!hit)
+        {
+            return false;
+        }
+        return hit.collider.CompareTag("Player") || hit.collider.tag == "Player";
     }
 
 

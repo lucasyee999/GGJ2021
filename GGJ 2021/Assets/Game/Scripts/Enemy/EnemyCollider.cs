@@ -18,7 +18,7 @@ public class EnemyCollider : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (GameManager.instance.found) return;
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             RaycastHit2D hit = Physics2D.Raycast(_enemyController.transform.position, other.transform.position - _enemyController.transform.position, 100f, LayerMask.NameToLayer("NonDetection"));
             if (hit.collider.CompareTag("Player") || hit.collider.tag == "Player")
