@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public Sprite UpSprite;
     public Sprite SideSprite;
 
+    public Animator playerAnimator;
+
 
     private void Start()
     {
@@ -60,6 +62,12 @@ public class PlayerController : MonoBehaviour
         {
             sr.sprite = DownSprite;
         }
+
+        bool sideWalk = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
+
+        playerAnimator.SetBool("SideWalk", sideWalk);
+
+
     }
 
     private void LateUpdate()
