@@ -49,5 +49,6 @@ public class EnemyPatrolState : IState
 
     public void Exit()
     {
+
     }
 }

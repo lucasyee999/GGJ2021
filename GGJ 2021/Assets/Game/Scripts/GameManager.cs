@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public PlayerController playerController;
     private EnemyController[] allEnemies;
 
+    public Transform start;
+    public Transform ending;
 
     private void Awake()
     {
@@ -43,6 +45,18 @@ public class GameManager : MonoBehaviour
         startingCutScene.Play();
         SoundManager.instance.StopAllSound();
         SoundManager.instance.PlayBGM(3);
+    }
+
+    private void Update()
+    {
+        if(Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.O))
+        {
+            playerController.transform.position = start.position;
+        }
+        else if (Input.GetKey(KeyCode.LeftShift) && Input.GetKey(KeyCode.P))
+        {
+            playerController.transform.position = ending.position;
+        }
     }
 
     public void StartGame()
