@@ -16,8 +16,6 @@ public class GameManager : MonoBehaviour
     public PlayableDirector startingCutScene;
     public PlayableDirector endingCutScene;
 
-
-
     [HideInInspector] public PlayerController playerController;
     private EnemyController[] allEnemies;
 
@@ -40,9 +38,9 @@ public class GameManager : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         allEnemies = FindObjectsOfType<EnemyController>();
         playerController.enabled = false;
-
+        startingCutScene.RebuildGraph();
+        startingCutScene.time = 0;
         startingCutScene.Play();
-        StartCoroutine(StartRoutine());
         SoundManager.instance.PlayBGM(3);
     }
 
@@ -93,16 +91,4 @@ public class GameManager : MonoBehaviour
 
 
     #endregion
-
-
-    private IEnumerator StartRoutine()
-    {
-        yield return new WaitForSeconds(1f);
-        if(startingCutScene.state == PlayState.Paused)
-        {
-            startingCutScene.Play();
-        }
-    }
-
-
 }
