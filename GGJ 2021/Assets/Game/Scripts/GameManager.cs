@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.Playables;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,9 +12,15 @@ public class GameManager : MonoBehaviour
     public GameObject EscapePoint;
 
     public bool found = false;
+    public bool GameStarted = false;
+    public PlayableDirector startingCutScene;
+    public PlayableDirector endingCutScene;
+
+
 
     [HideInInspector] public PlayerController playerController;
     private EnemyController[] allEnemies;
+
 
     private void Awake()
     {
@@ -32,6 +39,16 @@ public class GameManager : MonoBehaviour
         EscapePoint.SetActive(false);
         playerController = FindObjectOfType<PlayerController>();
         allEnemies = FindObjectsOfType<EnemyController>();
+        playerController.enabled = false;
+
+        startingCutScene.Play();
+    }
+
+    public void StartGame()
+    {
+        playerController.enabled = true;
+        GameStarted = true;
+        UIManager.instance.GameView.SetActive(true);
     }
 
 
@@ -41,7 +58,7 @@ public class GameManager : MonoBehaviour
     {
         playerController.enabled = false;
         playerController.rigid.velocity = Vector2.zero;
-        playerController.SpriteMask.transform.DOScale(new Vector3(500, 500), 2f).OnComplete(Found2);
+        endingCutScene.Play();
 
     }
 

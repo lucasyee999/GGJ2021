@@ -25,11 +25,6 @@ public class UIManager : MonoBehaviour
 
     }
 
-    private void Start()
-    {
-        OpenGameView();
-    }
-
     public void OpenGameView()
     {
         Time.timeScale = 1;

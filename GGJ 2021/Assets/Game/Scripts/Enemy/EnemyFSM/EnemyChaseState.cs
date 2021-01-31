@@ -20,6 +20,7 @@ public class EnemyChaseState : IState
         {
             SoundManager.instance.PlaySFX(1);
         }
+        _owner.SpawnExclamationMark();
     }
 
     public void Execute()
@@ -30,6 +31,6 @@ public class EnemyChaseState : IState
 
     public void Exit()
     {
-
+        _owner.DestroyExclamation();
     }
 }

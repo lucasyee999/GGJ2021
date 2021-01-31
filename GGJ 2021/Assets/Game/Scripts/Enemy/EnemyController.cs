@@ -40,6 +40,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private bool isStaticEnemy;
 
+    public GameObject ExclamationMarkParent;
+    public GameObject ExclamationMark;
+    [HideInInspector] public GameObject tempExclam;
+
 
     private void Awake()
     {
@@ -159,5 +163,18 @@ public class EnemyController : MonoBehaviour
     public void FlipSideways()
     {
         enemySpriteTransform.transform.localScale = new Vector2(-enemySpriteTransform.transform.localScale.x, 1);
+    }
+
+    public void SpawnExclamationMark()
+    {
+        tempExclam = Instantiate(ExclamationMark, ExclamationMarkParent.transform);
+    }
+
+    public void DestroyExclamation()
+    {
+        if(tempExclam != null)
+        {
+            Destroy(tempExclam);
+        }
     }
 }
