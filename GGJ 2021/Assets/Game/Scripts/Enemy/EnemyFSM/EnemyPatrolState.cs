@@ -26,6 +26,7 @@ public class EnemyPatrolState : IState
                 closestDistance = Vector2.Distance(_owner.PatrolPoints[i].position, _owner.transform.position);
             }
         }
+
     }
 
     public void Execute()
@@ -48,6 +49,5 @@ public class EnemyPatrolState : IState
 
     public void Exit()
     {
-
     }
 }

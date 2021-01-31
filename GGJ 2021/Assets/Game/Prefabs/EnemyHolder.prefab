@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1187208132517387402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4941911349506252762}
+  m_Layer: 0
+  m_Name: ExclamationMarkParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4941911349506252762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187208132517387402}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 2.86, y: 1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5448996734595712006}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5448996732877684168
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +118,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448996733424445638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.36, y: 0, z: 0}
+  m_LocalPosition: {x: 9.88, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5448996733050297375}
@@ -120,7 +150,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448996734173236187}
   m_LocalRotation: {x: 0.023237428, y: 0.021238035, z: 0.6743031, w: 0.7377834}
-  m_LocalPosition: {x: 0.29, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0.29, y: -0.25, z: 2.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5448996734595712006}
@@ -151,10 +181,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.066542625, y: 0.17486358}
-      - {x: -1.6657858, y: -3.4308205}
-      - {x: 0.12198269, y: -3.4707465}
-      - {x: 2.0157475, y: -3.4307132}
+    - - {x: 0.7481885, y: 0.15557607}
+      - {x: 0.030882888, y: 0.23268668}
+      - {x: -0.7738718, y: 0.2253531}
+      - {x: -2.0727372, y: -5.115694}
+      - {x: 0.28385922, y: -4.8194084}
+      - {x: 1.9918858, y: -4.633361}
 --- !u!114 &5448996734173236189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 5448996734398062991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5448996734595712006}
   m_RootOrder: 0
@@ -237,7 +269,7 @@ SpriteRenderer:
   m_SortingLayerID: 824928317
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a52d43b4ff4dc4dfb99b796681f175fb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e02ff33242635fc498e89ff4b9c73bd5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -272,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448996734475820364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.41, y: 0, z: 0}
+  m_LocalPosition: {x: -3.13, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5448996733050297375}
@@ -312,6 +344,7 @@ Transform:
   m_Children:
   - {fileID: 5448996734398062990}
   - {fileID: 5448996734173236186}
+  - {fileID: 4941911349506252762}
   m_Father: {fileID: 5448996732877684171}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -372,10 +405,15 @@ MonoBehaviour:
   enemySpriteTransform: {fileID: 5448996734398062990}
   Target: {fileID: 0}
   coneCollider: {fileID: 0}
-  UpSprite: {fileID: 21300000, guid: c5ab53f1aba4f405b838d610445575ff, type: 3}
-  DownSprite: {fileID: 21300000, guid: 7cefe9e9e8c984bbd9ff43235be8f54f, type: 3}
-  SideSprite: {fileID: 21300000, guid: a52d43b4ff4dc4dfb99b796681f175fb, type: 3}
+  UpSprite: {fileID: 21300000, guid: c67cf2e6ff0419b4c87933b5b8ba2063, type: 3}
+  DownSprite: {fileID: 21300000, guid: e02ff33242635fc498e89ff4b9c73bd5, type: 3}
+  SideSprite: {fileID: 21300000, guid: 723dccb9927c03a43b14ab791bf525d1, type: 3}
   TestTarget: 0
+  isStaticEnemy: 0
+  ExclamationMarkParent: {fileID: 1187208132517387402}
+  ExclamationMark: {fileID: 371839575580080095, guid: 7606445822cce3f46893a6e6079ff267,
+    type: 3}
+  tempExclam: {fileID: 0}
 --- !u!50 &5448996734595712008
 Rigidbody2D:
   serializedVersion: 4
