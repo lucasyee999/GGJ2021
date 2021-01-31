@@ -33,8 +33,4 @@ public class EnemyIdleState : IState
     {
 
     }
-    public string GetName()
-    {
-        return "EnemyIdleState";
-    }
 }

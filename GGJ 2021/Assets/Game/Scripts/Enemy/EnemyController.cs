@@ -37,6 +37,9 @@ public class EnemyController : MonoBehaviour
 
     private GameObject player;
 
+    [SerializeField]
+    private bool isStaticEnemy;
+
 
     private void Awake()
     {
@@ -54,7 +57,13 @@ public class EnemyController : MonoBehaviour
         this.player = GameObject.Find("Player");
         if (!TestTarget)
         {
-            stateMachine.ChangeState(new EnemyIdleState(this));
+            if (this.isStaticEnemy)
+            {
+                enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
+            }
+
+            var initialState = this.isStaticEnemy ? new EnemyStaticState(this) as IState : new EnemyIdleState(this);
+            stateMachine.ChangeState(initialState);
         }
     }
 
@@ -147,5 +156,8 @@ public class EnemyController : MonoBehaviour
         return hit.collider.CompareTag("Player") || hit.collider.tag == "Player";
     }
 
-
+    public void FlipSideways()
+    {
+        enemySpriteTransform.transform.localScale = new Vector2(-enemySpriteTransform.transform.localScale.x, 1);
+    }
 }

@@ -32,9 +32,4 @@ public class EnemyChaseState : IState
     {
 
     }
-
-    public string GetName()
-    {
-        return "EnemyChaseState";
-    }
 }

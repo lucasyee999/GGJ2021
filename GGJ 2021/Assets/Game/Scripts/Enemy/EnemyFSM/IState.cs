@@ -3,6 +3,4 @@
     void Enter();
     void Execute();
     void Exit();
-
-    string GetName();
 }

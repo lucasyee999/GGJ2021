@@ -50,9 +50,4 @@ public class EnemyPatrolState : IState
     {
 
     }
-
-    public string GetName()
-    {
-        return "EnemyPatrolState";
-    }
 }
