@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 5448996734173236186}
   - component: {fileID: 5448996734173236188}
   - component: {fileID: 5448996734173236189}
+  - component: {fileID: 4346047316528319490}
   m_Layer: 9
   m_Name: DetectionRange
   m_TagString: Untagged
@@ -199,6 +200,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6d91b047b9f294cb8336918aae2b67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &4346047316528319490
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5448996734173236187}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.026026748, y: 0.28946495}
+  serializedVersion: 2
+  m_Radius: 2.0841818
 --- !u!1 &5448996734398062991
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +417,7 @@ MonoBehaviour:
   - {fileID: 5448996733424445641}
   PatrolMovementSpeed: 2.5
   ActualPatrolSpeed: 0
-  ChaseMovementSpeed: 4.5
+  ChaseMovementSpeed: 3.5
   ActualChaseSpeed: 0
   enemySpriteTransform: {fileID: 5448996734398062990}
   Target: {fileID: 0}

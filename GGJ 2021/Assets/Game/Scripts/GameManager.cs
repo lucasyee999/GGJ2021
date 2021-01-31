@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         playerController.enabled = true;
         GameStarted = true;
         UIManager.instance.GameView.SetActive(true);
