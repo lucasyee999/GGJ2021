@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity = input.normalized * theSpeed;
         //transform.position += velocity * Time.deltaTime;
         rb.velocity = velocity;
-        if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             transform.localScale = Vector3.one;
             sr.sprite = UpSprite;
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             transform.localScale = Vector3.one;
             sr.sprite = DownSprite;
         }
-        else if(Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D))
         {
             transform.localScale = new Vector3(-1, 1, 1);
             sr.sprite = SideSprite;
@@ -51,6 +51,14 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
             sr.sprite = SideSprite;
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            sr.sprite = UpSprite;
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            sr.sprite = DownSprite;
         }
     }
 
@@ -68,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             GameManager.instance.Found();
         }
-        else if(other.collider.tag == "Escape")
+        else if (other.collider.tag == "Escape")
         {
             GameManager.instance.Escaped();
         }
