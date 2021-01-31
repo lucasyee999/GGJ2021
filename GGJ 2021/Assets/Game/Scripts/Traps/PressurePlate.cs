@@ -10,6 +10,7 @@ public class PressurePlate : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            SoundManager.instance.PlaySFX(6);
             foreach(GameObject go in GameObjectsToDisable)
             {
                 go.SetActive(false);

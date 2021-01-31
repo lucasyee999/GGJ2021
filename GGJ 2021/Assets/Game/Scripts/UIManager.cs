@@ -66,6 +66,6 @@ public class UIManager : MonoBehaviour
 
     public void OnRetryButtonClicked()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

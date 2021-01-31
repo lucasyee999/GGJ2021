@@ -7,5 +7,6 @@ public class EndingCutscene : MonoBehaviour
     public void EndCutscene()
     {
         GameManager.instance.Found2();
+        SoundManager.instance.Stop(7);
     }
 }

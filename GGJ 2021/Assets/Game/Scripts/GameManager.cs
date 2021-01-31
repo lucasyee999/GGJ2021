@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         playerController.enabled = false;
         playerController.rigid.velocity = Vector2.zero;
         endingCutScene.Play();
-
+        SoundManager.instance.PlaySFX(7);
     }
 
     public void Found2()
