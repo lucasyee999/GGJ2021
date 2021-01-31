@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
         startingCutScene.RebuildGraph();
         startingCutScene.time = 0;
         startingCutScene.Play();
+        SoundManager.instance.StopAllSound();
         SoundManager.instance.PlayBGM(3);
     }
 
