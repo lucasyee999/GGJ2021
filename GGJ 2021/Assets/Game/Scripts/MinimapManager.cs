@@ -5,12 +5,21 @@ using UnityEngine.Tilemaps;
 
 public class MinimapManager : MonoBehaviour
 {
+    public static MinimapManager instance;
+
     public Tilemap[] MinimapTileMaps;
     public GameObject Minimap;
 
     public Transform player;
     public int radius;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     private void Start()
     {
@@ -61,6 +70,18 @@ public class MinimapManager : MonoBehaviour
                 }
             }
 
+        }
+    }
+
+    public void RevealWholeMinimap()
+    {
+        foreach (Tilemap map in MinimapTileMaps)
+        {
+            foreach (Vector3Int tilePosition in map.cellBounds.allPositionsWithin)
+            {
+                map.SetTileFlags(tilePosition, TileFlags.None);
+                map.SetColor(tilePosition, Color.white);
+            }
         }
     }
 

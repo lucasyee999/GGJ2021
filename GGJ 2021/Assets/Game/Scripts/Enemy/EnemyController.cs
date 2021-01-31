@@ -103,26 +103,26 @@ public class EnemyController : MonoBehaviour
         // target is right
         if(directionVector.y > 0.3f)
         {
-            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = UpSprite;
         }
         
         else if(directionVector.y < -0.3f)
         {
-            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = DownSprite;
         }
 
         else if(directionVector.x > 0)
         {
-            enemySpriteTransform.transform.localScale = new Vector2(5, 5);
+            enemySpriteTransform.transform.localScale = new Vector2(-1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
 
         }
         // target is left
         else if(directionVector.x < 0)
         {
-            enemySpriteTransform.transform.localScale = new Vector2(-5, 5);
+            enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
         }
 
