@@ -398,9 +398,9 @@ MonoBehaviour:
   PatrolPoints:
   - {fileID: 5448996734475820367}
   - {fileID: 5448996733424445641}
-  PatrolMovementSpeed: 2
+  PatrolMovementSpeed: 2.5
   ActualPatrolSpeed: 0
-  ChaseMovementSpeed: 2
+  ChaseMovementSpeed: 4.5
   ActualChaseSpeed: 0
   enemySpriteTransform: {fileID: 5448996734398062990}
   Target: {fileID: 0}
