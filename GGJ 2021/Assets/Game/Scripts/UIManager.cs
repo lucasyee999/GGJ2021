@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public GameObject GameView;
     public GameObject WinView;
     public GameObject LoseView;
+    public GameObject FoundView;
 
     private void Awake()
     {
@@ -35,26 +36,34 @@ public class UIManager : MonoBehaviour
         GameView.SetActive(true);
         WinView.SetActive(false);
         LoseView.SetActive(false);
+        FoundView.SetActive(false);
+
     }
 
     public void OpenWinView()
     {
         Time.timeScale = 0;
-        GameView.SetActive(true);
         WinView.SetActive(true);
         LoseView.SetActive(false);
-
     }
 
     public void OpenLoseView()
     {
         Time.timeScale = 0;
-        GameView.SetActive(true);
         WinView.SetActive(false);
         LoseView.SetActive(true);
 
         SoundManager.instance.StopAllSound();
         SoundManager.instance.PlayBGM(0);
+    }
+
+    public void OpenFoundView()
+    {
+        Time.timeScale = 1;
+        GameView.SetActive(false);
+        WinView.SetActive(false);
+        LoseView.SetActive(false);
+        FoundView.SetActive(true);
     }
 
     public void OnRetryButtonClicked()

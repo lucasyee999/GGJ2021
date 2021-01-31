@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
             enemy.stateMachine.ChangeState(new EnemyChaseState(enemy, player));
         }
         EscapePoint.SetActive(true);
+        UIManager.instance.OpenFoundView();
+        MinimapManager.instance.RevealWholeMinimap();
     }
 
     #endregion
