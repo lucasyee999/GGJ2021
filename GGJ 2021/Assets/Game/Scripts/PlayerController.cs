@@ -80,6 +80,12 @@ public class PlayerController : MonoBehaviour
             playerAnimator.SetBool("SideWalk", false);
 
         }
+        else if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S) && !Input.GetKey(KeyCode.D))
+        {
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("SideWalk", false);
+        }
         else
         {
             playerAnimator.SetBool("BackWalk", false);
