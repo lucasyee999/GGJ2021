@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -39,7 +39,7 @@ public class SoundManager : MonoBehaviour
 
     public void StopAllSound()
     {
-        foreach(AudioSource audio in AudioSources)
+        foreach (AudioSource audio in AudioSources)
         {
             audio.Stop();
         }

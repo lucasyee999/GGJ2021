@@ -7,11 +7,12 @@ public class MainMenuScript : MonoBehaviour
 {
     private void Start()
     {
-        SoundManager.instance.PlayBGM(3);
+        SoundManager.instance.PlayBGM(5);
     }
 
     public void OnStartButtonClicked()
     {
+        SoundManager.instance.StopAllSound();
         SceneManager.LoadScene(1);
     }
 }

@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if(!TestTarget)
+        if (!TestTarget)
         {
             stateMachine.Update();
         }
@@ -101,26 +101,26 @@ public class EnemyController : MonoBehaviour
         var directionVector = (target.transform.position - origin.transform.position).normalized;
 
         // target is right
-        if(directionVector.y > 0.3f)
+        if (directionVector.y > 0.3f)
         {
             enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = UpSprite;
         }
-        
-        else if(directionVector.y < -0.3f)
+
+        else if (directionVector.y < -0.3f)
         {
             enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = DownSprite;
         }
 
-        else if(directionVector.x > 0)
+        else if (directionVector.x > 0)
         {
             enemySpriteTransform.transform.localScale = new Vector2(-1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
 
         }
         // target is left
-        else if(directionVector.x < 0)
+        else if (directionVector.x < 0)
         {
             enemySpriteTransform.transform.localScale = new Vector2(1, 1);
             enemySpriteTransform.GetComponent<SpriteRenderer>().sprite = SideSprite;
@@ -130,7 +130,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.collider.tag == "Player")
+        if (other.collider.tag == "Player")
         {
             UIManager.instance.OpenLoseView();
         }

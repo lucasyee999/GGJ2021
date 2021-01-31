@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -37,7 +37,7 @@ public class UIManager : MonoBehaviour
         WinView.SetActive(false);
         LoseView.SetActive(false);
         FoundView.SetActive(false);
-
+        SoundManager.instance.PlayBGM(3);
     }
 
     public void OpenWinView()
@@ -45,6 +45,9 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         WinView.SetActive(true);
         LoseView.SetActive(false);
+
+        SoundManager.instance.StopAllSound();
+        SoundManager.instance.PlaySFX(4);
     }
 
     public void OpenLoseView()
@@ -54,7 +57,7 @@ public class UIManager : MonoBehaviour
         LoseView.SetActive(true);
 
         SoundManager.instance.StopAllSound();
-        SoundManager.instance.PlayBGM(0);
+        SoundManager.instance.PlaySFX(0);
     }
 
     public void OpenFoundView()
@@ -70,7 +73,4 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-
-
-
 }

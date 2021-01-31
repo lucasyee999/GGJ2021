@@ -16,7 +16,7 @@ public class EnemyChaseState : IState
 
     public void Enter()
     {
-        if(!GameManager.instance.found)
+        if (!GameManager.instance.found)
         {
             SoundManager.instance.PlaySFX(1);
         }
@@ -30,6 +30,6 @@ public class EnemyChaseState : IState
 
     public void Exit()
     {
-        
+
     }
 }
