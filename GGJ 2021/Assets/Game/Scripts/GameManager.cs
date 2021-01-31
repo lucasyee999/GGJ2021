@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
         playerController.enabled = false;
 
         startingCutScene.Play();
+        StartCoroutine(StartRoutine());
+        SoundManager.instance.PlayBGM(3);
     }
 
     public void StartGame()
@@ -92,6 +94,15 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
+    private IEnumerator StartRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+        if(startingCutScene.state == PlayState.Paused)
+        {
+            startingCutScene.Play();
+        }
+    }
 
 
 }
