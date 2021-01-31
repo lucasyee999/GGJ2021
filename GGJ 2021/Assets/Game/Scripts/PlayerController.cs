@@ -38,34 +38,54 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = Vector3.one;
             sr.sprite = UpSprite;
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("BackWalk", true);
+            playerAnimator.SetBool("SideWalk", false);
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
             transform.localScale = Vector3.one;
             sr.sprite = DownSprite;
+            playerAnimator.SetBool("FrontWalk", true);
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("SideWalk", false);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.localScale = new Vector3(-1, 1, 1);
             sr.sprite = SideSprite;
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("SideWalk", true);
         }
         else if (Input.GetKey(KeyCode.A))
         {
             transform.localScale = Vector3.one;
-            sr.sprite = SideSprite;
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("SideWalk", true);
         }
         else if (Input.GetKey(KeyCode.W))
         {
             sr.sprite = UpSprite;
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("BackWalk", true);
+            playerAnimator.SetBool("SideWalk", false);
         }
         else if (Input.GetKey(KeyCode.S))
         {
             sr.sprite = DownSprite;
+            playerAnimator.SetBool("FrontWalk", true);
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("SideWalk", false);
+
         }
-
-        bool sideWalk = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D);
-
-        playerAnimator.SetBool("SideWalk", sideWalk);
+        else
+        {
+            playerAnimator.SetBool("BackWalk", false);
+            playerAnimator.SetBool("FrontWalk", false);
+            playerAnimator.SetBool("SideWalk", false);
+        }
 
 
     }

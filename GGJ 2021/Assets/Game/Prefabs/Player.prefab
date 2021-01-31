@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6764695693817083992}
   - component: {fileID: 6764695693817083973}
   - component: {fileID: 6764695693817083993}
-  - component: {fileID: 9215008829365504828}
+  - component: {fileID: 3106758611528911406}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -189,7 +189,7 @@ MonoBehaviour:
   DownSprite: {fileID: 21300000, guid: d826b73c243bac745a2150e49914be53, type: 3}
   UpSprite: {fileID: 21300000, guid: b79f56b5bc6652d4f82178b2feabafad, type: 3}
   SideSprite: {fileID: 21300000, guid: b008a4e314f613540b383e1258b54385, type: 3}
-  playerAnimator: {fileID: 9215008829365504828}
+  playerAnimator: {fileID: 3106758611528911406}
 --- !u!61 &6764695693817083992
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -248,7 +248,7 @@ SortingGroup:
   m_SortingLayerID: 824928317
   m_SortingLayer: 3
   m_SortingOrder: 0
---- !u!95 &9215008829365504828
+--- !u!95 &3106758611528911406
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
